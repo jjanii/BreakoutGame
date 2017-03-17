@@ -1,0 +1,9 @@
+gui/Game$1.class
+domain/Brick.class
+domain/Ball.class
+gui/Game$ScreenRepaint.class
+domain/Bat.class
+logic/Main.class
+domain/Item.class
+logic/PlatformMover.class
+gui/Game.class
