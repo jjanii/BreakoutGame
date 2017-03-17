@@ -5,7 +5,9 @@
  */
 package logic;
 
-import gui.Game;
+import game.Game;
+import game.GameDrawer;
+import game.Screen;
 import javax.swing.JFrame;
 
 /**
@@ -15,17 +17,8 @@ import javax.swing.JFrame;
 public class Main extends JFrame {
 
     public static void main(String[] args) {
-        Main game = new Main();
-        game.gameUI();
-        game.setVisible(true);
-    }
-
-    public void gameUI() {
-        add(new Game(30));
-        setTitle("Breakout by Jani");
-
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(400, 470);
-        setResizable(false);
+        GameDrawer gd = new GameDrawer(30);
+        Game game = new Game();
+        Screen screen = new Screen(gd);
     }
 }

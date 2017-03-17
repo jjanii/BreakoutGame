@@ -5,10 +5,21 @@
  */
 package domain;
 
+import java.awt.Image;
+
 /**
  *
  * @author Jani
  */
-public class Ball extends Item implements Drawable {
+public interface Drawable {
+
+    public int getX();
+
+    public int getY();
     
+    public Image getImage();
+    
+    public int getWidth();
+    
+    public int getHeight();
 }

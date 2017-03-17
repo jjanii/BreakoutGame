@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
@@ -12,11 +13,11 @@ import javax.swing.ImageIcon;
  *
  * @author Jani
  */
-public class Bat extends Item {
+public class Bat extends Item implements Drawable {
 
     private int movement;
 
-    public Bat() {
+    public Bat(int startx, int starty) {
 
         ImageIcon bat = new ImageIcon("resources/bat.png");
         image = bat.getImage();
@@ -24,33 +25,22 @@ public class Bat extends Item {
         width = image.getWidth(null);
         height = image.getHeight(null);
 
-        x = 200;
-        y = 380;
+        x = startx;
+        y = starty;
     }
 
-    public void move() {
-        if (movement != 0) {
-            x += movement;
-
-            if (x <= 0) {
-                x = 0;
-            } else if (x >= 400 - width) {
-                x = 400 - height;
-            }
+    public void moveLeft() {
+        x -= 9;
+        if (x <= 0) {
+            x = 0;
         }
     }
 
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            movement = -3;
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            movement = 3;
-        }
-    }
+    public void moveRight() {
+        x += 9;
 
-    public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            movement = 0;
+        if (x >= 400 - width) {
+            x = 400 - height;
         }
     }
 

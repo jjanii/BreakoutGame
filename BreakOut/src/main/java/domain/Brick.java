@@ -9,7 +9,7 @@ package domain;
  *
  * @author Jani
  */
-public class Brick {
+public class Brick extends Item implements Drawable {
     
     
 }
