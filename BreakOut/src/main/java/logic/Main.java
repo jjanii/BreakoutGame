@@ -18,7 +18,6 @@ public class Main extends JFrame {
 
     public static void main(String[] args) {
         GameDrawer gd = new GameDrawer(30);
-        Game game = new Game();
         Screen screen = new Screen(gd);
     }
 }

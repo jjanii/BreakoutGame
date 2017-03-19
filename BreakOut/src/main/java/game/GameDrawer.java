@@ -5,8 +5,6 @@
  */
 package game;
 
-import domain.Ball;
-import domain.Bat;
 import domain.Drawable;
 import game.Game.GameEvent;
 import java.awt.Graphics;
@@ -19,8 +17,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.JPanel;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 import javax.swing.Timer;
 
 /**
@@ -34,13 +30,14 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener{
     private ArrayList<Drawable> items;
 
     public GameDrawer(int bricks) {
-        game = new Game();
+        game = new Game(timer);
         timer.start();
     }
 
     @Override
     public void actionPerformed(ActionEvent ev) {
         if (ev.getSource() == timer) {
+            game.sendEvent(GameEvent.TIMER_TICK);
             repaint();
         }
         setFocusable(true);
