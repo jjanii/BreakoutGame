@@ -16,5 +16,5 @@ Kun olen saanut perustoiminnot kuntoon aion jatkaa kohti kehittyneempiä ominais
 * Kaksinpeli(?)
 
 
-**Luokkakaavio**
-![Alt text](/kaaviot/luokkakaavio.png)
+**Luokkakaavio:**
+![Alt text](/Dokumentaatio/kaaviot/luokkakaavio.png)
