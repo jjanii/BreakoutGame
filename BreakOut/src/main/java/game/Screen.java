@@ -12,7 +12,9 @@ import javax.swing.JFrame;
  * @author Jani
  */
 public class Screen extends JFrame {
-    public Screen(GameDrawer gd) {
+
+    public Screen() {
+        GameDrawer gd = new GameDrawer(30);
         add(gd);
         gd.addKeyListener(gd);
         setTitle("Breakout by Jani");

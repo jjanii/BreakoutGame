@@ -5,18 +5,15 @@
  */
 package logic;
 
-import game.GameDrawer;
 import game.Screen;
-import javax.swing.JFrame;
 
 /**
  *
  * @author Jani
  */
-public class Main extends JFrame {
+public class Main {
 
     public static void main(String[] args) {
-        GameDrawer gd = new GameDrawer(30);
-        Screen screen = new Screen(gd);
+        Screen screen = new Screen();
     }
 }
