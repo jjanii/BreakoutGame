@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package logic;
 
 import domain.Ball;
 import domain.Bat;
@@ -19,7 +19,6 @@ import javax.swing.Timer;
 public class Game {
 
     public enum GameEvent {
-
         MOVE_RIGHT,
         MOVE_LEFT,
         TIMER_TICK
@@ -29,12 +28,14 @@ public class Game {
     private Bat bat;
     private ArrayList<Brick> bricks;
     private Timer timer;
+    public String status;
 
     public Game(Timer timer) {
-        bat = new Bat(200, 420);
+        bat = new Bat(200, 420, 15);
         ball = new Ball(200, 150);
         bricks = new ArrayList<>();
         this.timer = timer;
+        status = "Game is on";
     }
     
     public ArrayList<Drawable> getItems() {
@@ -45,6 +46,15 @@ public class Game {
 
         return items;
     }
+    
+    public Ball getBall() {
+        return ball;
+    }
+    
+    public Bat getBat() {
+        return bat;
+    }
+    
 
     public void sendEvent(GameEvent event) {
         switch (event) {
@@ -61,14 +71,13 @@ public class Game {
     }
 
     public void checkCollisions() {
-        if (ball.getRectangle().getMaxY() > 460) {
-            System.out.println("Game over");
+        if (ball.getY() > bat.getY()) {
+            status = "Game over";
             timer.stop();
         }
         if ((ball.getRectangle()).intersects(bat.getRectangle())) {
             changeBallDirection();
         }
-
     }
 
     public void changeBallDirection() {
@@ -84,24 +93,16 @@ public class Game {
         if (ballX < q1) {
             ball.setdx(-3);
             ball.setdy(-1);
-        }
-
-        if (ballX >= q1 && ballX < q2) {
+        } else if (ballX >= q1 && ballX < q2) {
             ball.setdx(-3);
             ball.setdy(-2);
-        }
-
-        if (ballX >= q2 && ballX < q3) {
+        } else if (ballX >= q2 && ballX < q3) {
             ball.setdx(0);
             ball.setdy(-2);
-        }
-
-        if (ballX >= q3 && ballX < q4) {
+        } else if (ballX >= q3 && ballX < q4) {
             ball.setdx(3);
             ball.setdy(-2);
-        }
-
-        if (ballX >= q4) {
+        } else if (ballX >= q4) {
             ball.setdx(3);
             ball.setdy(-1);
         }

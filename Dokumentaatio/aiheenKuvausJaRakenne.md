@@ -11,6 +11,10 @@ Kun olen saanut perustoiminnot kuntoon aion jatkaa kohti kehittyneempiä ominais
 
 **Lisätoiminnot:**
 * Powerupit
-  * mm. leveämpi laatta väliaikaisesti, pallon nopeuden vaihtelu jne. 
+  * mm. leveämpi laatta väliaikaisesti, pallon nopeuden vaihtelu jne.
 * Useampia kenttiä
 * Kaksinpeli(?)
+
+
+**Luokkakaavio**
+![Alt text](/kaaviot/luokkakaavio.png)

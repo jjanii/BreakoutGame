@@ -1,7 +1,9 @@
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/domain/Bat.java
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/domain/Brick.java
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/gui/Game.java
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/logic/Main.java
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/logic/PlatformMover.java
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/domain/Item.java
-/Users/Jani/Desktop/BreakOutLabra/BreakoutGame/BreakOut/src/main/java/domain/Ball.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/logic/Game.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/game/Screen.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/logic/Main.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/domain/Brick.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/domain/Drawable.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/domain/Ball.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/game/GameDrawer.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/domain/Item.java
+/Users/Jani/Desktop/BreakoutLabra/BreakOut/src/main/java/domain/Bat.java

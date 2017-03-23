@@ -5,8 +5,9 @@
  */
 package game;
 
+import logic.Game;
 import domain.Drawable;
-import game.Game.GameEvent;
+import logic.Game.GameEvent;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -23,12 +24,16 @@ import javax.swing.Timer;
  *
  * @author Jani
  */
-public class GameDrawer extends JPanel implements KeyListener, ActionListener{
+public class GameDrawer extends JPanel implements KeyListener, ActionListener {
 
     private Timer timer = new Timer(10, this);
     private Game game;
     private ArrayList<Drawable> items;
 
+    /**
+     *
+     * @param bricks
+     */
     public GameDrawer(int bricks) {
         game = new Game(timer);
         timer.start();
@@ -69,11 +74,6 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener{
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             game.sendEvent(GameEvent.MOVE_RIGHT);
@@ -83,8 +83,10 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener{
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {
     }
 
-
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

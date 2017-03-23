@@ -5,7 +5,6 @@
  */
 package logic;
 
-import game.Game;
 import game.GameDrawer;
 import game.Screen;
 import javax.swing.JFrame;
