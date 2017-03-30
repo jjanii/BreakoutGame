@@ -12,8 +12,10 @@ import javax.swing.ImageIcon;
  * @author Jani
  */
 public class Bat extends Item implements Drawable {
-    private int speed;
-    public Bat(int startx, int starty, int speed) {
+
+    private int direction;
+
+    public Bat(int startx, int starty) {
 
         ImageIcon bat = new ImageIcon("resources/bat.png");
         image = bat.getImage();
@@ -23,22 +25,23 @@ public class Bat extends Item implements Drawable {
 
         x = startx;
         y = starty;
-        this.speed = speed;
     }
 
-    public void moveLeft() {
-        x -= speed;
-        if (x <= 0) {
+    public void move() {
+        x += direction;
+        borderHandler();
+    }
+
+    public void borderHandler() {
+        if (x >= 440 - width) {
+            x = 440 - width;
+        } else if (x <= 0) {
             x = 0;
-        } 
+        }
     }
 
-    public void moveRight() {
-        x += speed;
-
-        if (x >= 400 - width) {
-            x = 400 - width;
-        }
+    public void setDirection(int speed) {
+        this.direction = speed;
     }
 
 }

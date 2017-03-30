@@ -14,12 +14,12 @@ import javax.swing.JFrame;
 public class Screen extends JFrame {
 
     public Screen() {
-        GameDrawer gd = new GameDrawer(30);
+        GameDrawer gd = new GameDrawer();
         add(gd);
         gd.addKeyListener(gd);
         setTitle("Breakout by Jani");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(400, 470);
+        setSize(440, 470);
         setResizable(false);
         setVisible(true);
     }

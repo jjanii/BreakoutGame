@@ -5,17 +5,12 @@
  */
 package logic;
 
-import logic.Game;
 import domain.Ball;
 import domain.Bat;
-import domain.Drawable;
+import domain.Brick;
 import game.GameDrawer;
 import java.util.ArrayList;
 import javax.swing.Timer;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -28,25 +23,9 @@ public class GameTest {
     public GameTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void gameIsOnWhileBallIsAboveTheBat() {
-        GameDrawer gd = new GameDrawer(10);
+        GameDrawer gd = new GameDrawer();
         Timer t = new Timer(20, gd);
         Game g = new Game(t);
 
@@ -54,14 +33,14 @@ public class GameTest {
         Bat bat = g.getBat();
 
         while (b.getY() > bat.getY()) {
-            assertEquals(g.status, "Game is on");
+            assertTrue(g.timerStatus());
             g.checkCollisions();
         }
     }
 
     @Test
     public void gameEndsIfBallDropsBelowTheBat() {
-        GameDrawer gd = new GameDrawer(10);
+        GameDrawer gd = new GameDrawer();
         Timer t = new Timer(20, gd);
         Game g = new Game(t);
 
@@ -72,12 +51,12 @@ public class GameTest {
         b.setY(500);
 
         g.checkCollisions();
-        assertEquals(g.status, "Game over");
+        assertFalse(g.timerStatus());
     }
 
     @Test
     public void changeBallDirectionChangesBallToGoUp() {
-        GameDrawer gd = new GameDrawer(10);
+        GameDrawer gd = new GameDrawer();
         Timer t = new Timer(20, gd);
         Game g = new Game(t);
 
@@ -89,4 +68,20 @@ public class GameTest {
 
         assertTrue(b.getdy() < 0); 
     }
+    
+    @Test
+    public void brickGetsDeletedAfterHitTwice() {
+        GameDrawer gd = new GameDrawer();
+        Timer t = new Timer(20, gd);
+        Game g = new Game(t);
+
+        int numberOfBricks = g.getBricks().size();
+        
+        g.hitBrick(0);
+        g.hitBrick(0);
+        
+        assertEquals(g.getBricks().size(), numberOfBricks-1);
+    }
+    
+    
 }

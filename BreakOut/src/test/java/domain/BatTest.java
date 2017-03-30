@@ -5,10 +5,6 @@
  */
 package domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -23,36 +19,40 @@ public class BatTest {
     
     @Test
     public void moveLeftMovesTheBatRightAmountOfPixelsLeft() {
-        int speed = 20;
-        Bat b = new Bat(200, 200, speed);
-        b.moveLeft();
+        int speed = -20;
+        Bat b = new Bat(200, 200);
+        b.setDirection(20);
+        b.move();
         assertEquals(b.getX(), 200-speed);
     }
     
     @Test
     public void moveRightMovesTheBatRightAmountOfPixelsRight() {
         int speed = 30;
-        Bat b = new Bat(200, 200, speed);
-        b.moveRight();
+        Bat b = new Bat(200, 200);
+        b.setDirection(speed);
+        b.move();
         assertEquals(b.getX(), 200+speed);
     }
     
     @Test
     public void moveRightDoesNotMoveTheBatOutOfBorders() {
         int speed = 10;
-        Bat b = new Bat(200, 200, speed);
+        Bat b = new Bat(200, 200);
+        b.setDirection(speed);
         for (int i = 0; i < 100; i++) {
-            b.moveRight();
+            b.move();
         }
-        assertEquals(b.getX(), 400-b.getWidth());
+        assertEquals(b.getX(), 440-b.getWidth());
     }
      
     @Test
     public void moveLeftDoesNotMoveTheBatOutOfBorders() {
-        int speed = 10;
-        Bat b = new Bat(200, 200, speed);
+        int speed = -10;
+        Bat b = new Bat(200, 200);
+        b.setDirection(speed);
         for (int i = 0; i < 100; i++) {
-            b.moveLeft();
+            b.move();
         }
         assertEquals(b.getX(), 0);
     }

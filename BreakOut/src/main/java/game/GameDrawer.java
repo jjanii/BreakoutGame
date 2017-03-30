@@ -7,6 +7,7 @@ package game;
 
 import logic.Game;
 import domain.Drawable;
+import java.awt.Color;
 import logic.Game.GameEvent;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -30,13 +31,10 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
     private Game game;
     private ArrayList<Drawable> items;
 
-    /**
-     *
-     * @param bricks
-     */
-    public GameDrawer(int bricks) {
+    public GameDrawer() {
         game = new Game(timer);
         timer.start();
+        setBackground(Color.BLACK);
     }
 
     @Override
@@ -61,7 +59,6 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
                 RenderingHints.VALUE_RENDER_QUALITY);
 
         drawObjects(g2d);
-
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -79,6 +76,11 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
             game.sendEvent(GameEvent.MOVE_RIGHT);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             game.sendEvent(GameEvent.MOVE_LEFT);
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (!timer.isRunning()) {
+                game = new Game(timer);
+                timer.restart();
+            }
         }
     }
 
@@ -88,5 +90,8 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT) {
+            game.sendEvent(GameEvent.KEY_RELEASED);
+        }
     }
 }

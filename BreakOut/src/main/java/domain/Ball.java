@@ -27,7 +27,7 @@ public class Ball extends Item implements Drawable {
         x = startx;
         y = starty;
 
-        dx = 3;
+        dx = 1;
         dy = 2;
 
     }
@@ -42,7 +42,7 @@ public class Ball extends Item implements Drawable {
     public void checkIfBallGoesOutOfBorder() {
         if (x <= 0) {
             dx = 3;
-        } else if (x >= 400 - width) {
+        } else if (x >= 440 - width) {
             dx = -3;
         }
 

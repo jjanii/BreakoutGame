@@ -5,10 +5,6 @@
  */
 package domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -48,7 +44,7 @@ public class BallTest {
     }
     
     @Test
-    public void ballCanNotMoveOutOfBorders() {
+    public void ballCanNotMoveOutOfLeftBorder() {
         Ball b = new Ball(200, 200);
         b.setdx(-10);
         b.setdy(1);
@@ -58,6 +54,32 @@ public class BallTest {
         }
         
         assertTrue(b.getX() > 0);
+    }
+    
+    @Test
+    public void ballCanNotMoveOutOfRightBorder() {
+        Ball b = new Ball(200, 200);
+        b.setdx(10);
+        b.setdy(0);
+        
+        for (int i = 0; i < 50; i++) {
+            b.move();
+        }
+        
+        assertTrue(b.getX() <= 440-b.getWidth());
+    }
+    
+    @Test
+    public void ballCanNotMoveOverTheTopOfWindow() {
+        Ball b = new Ball(200, 200);
+        b.setdx(0);
+        b.setdy(-10);
+        
+        for (int i = 0; i < 50; i++) {
+            b.move();
+        }
+        
+        assertTrue(b.getY() >= 0);
     }
     
 }
