@@ -63,5 +63,5 @@
   <testcase classname="domain.BatTest" name="moveLeftDoesNotMoveTheBatOutOfBorders" time="0"/>
   <testcase classname="domain.BatTest" name="moveRightMovesTheBatRightAmountOfPixelsRight" time="0"/>
   <testcase classname="domain.BatTest" name="moveLeftMovesTheBatRightAmountOfPixelsLeft" time="0"/>
-  <testcase classname="domain.BatTest" name="moveRightDoesNotMoveTheBatOutOfBorders" time="0.001"/>
+  <testcase classname="domain.BatTest" name="moveRightDoesNotMoveTheBatOutOfBorders" time="0.002"/>
 </testsuite>

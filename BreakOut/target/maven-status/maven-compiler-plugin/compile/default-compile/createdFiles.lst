@@ -1,11 +1,11 @@
-game/GameDrawer.class
 logic/Game.class
+GUI/GameDrawer.class
 domain/Brick.class
 domain/Drawable.class
 domain/Ball.class
 logic/Game$GameEvent.class
+GUI/Screen.class
 domain/Bat.class
-game/Screen.class
 logic/Game$1.class
 logic/Main.class
 domain/Item.class

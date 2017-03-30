@@ -5,7 +5,7 @@
  */
 package logic;
 
-import game.Screen;
+import GUI.Screen;
 
 /**
  *

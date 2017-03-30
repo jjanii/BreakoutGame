@@ -7,9 +7,7 @@ package logic;
 
 import domain.Ball;
 import domain.Bat;
-import domain.Brick;
-import game.GameDrawer;
-import java.util.ArrayList;
+import GUI.GameDrawer;
 import javax.swing.Timer;
 import org.junit.Test;
 import static org.junit.Assert.*;
