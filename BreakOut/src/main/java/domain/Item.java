@@ -19,23 +19,24 @@ public class Item {
     public int width;
     public int height;
     public Image image;
-    
+
+
     public void setWidth(int w) {
         this.width = w;
     }
-    
+
     public int getWidth() {
         return this.width;
     }
-    
+
     public void setHeight(int h) {
         this.height = h;
     }
-    
+
     public int getHeight() {
         return this.height;
     }
-    
+
     public void setX(int x) {
         this.x = x;
     }
@@ -51,15 +52,15 @@ public class Item {
     public int getY() {
         return this.y;
     }
-    
+
     public void setImage(Image image) {
         this.image = image;
     }
-    
+
     public Image getImage() {
         return this.image;
     }
-    
+
     public Rectangle getRectangle() {
         return new Rectangle(x, y, image.getWidth(null), image.getHeight(null));
     }

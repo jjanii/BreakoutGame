@@ -8,11 +8,14 @@ package GUI;
 import javax.swing.JFrame;
 
 /**
- *
+ * Ruutu
  * @author Jani
  */
 public class Screen extends JFrame {
 
+    /**
+     * Luodaan ruutu peliä varten
+     */
     public Screen() {
         GameDrawer gd = new GameDrawer();
         add(gd);

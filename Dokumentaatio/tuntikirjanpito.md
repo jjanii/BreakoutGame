@@ -9,3 +9,7 @@ Päivä | Tunnit | Kuvaus
 26.03.2017 | 2h | Tiilien logiikka valmiiksi
 29.03.2017 | 2h | Laudan liikkuvuuden parantamista sulavammaksi
 30.03.2017 | 2h | Testien ja viikkopalautuksen tekoa
+03.04.2017 | 1h | Pelin suunnittelua ettei olisi vain yksi kenttä
+04.04.2017 | 2h | Eri kenttien ja tiilien kokeilua
+06.04.2017 | 2h | 3 kenttää valmiiksi ja niiden testailua
+06.04.2017 | 2h | Testien ja viikkopalautuksen tekoa

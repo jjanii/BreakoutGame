@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
- *
+ * Pelin logiikka
  * @author Jani
  */
 public final class Game {
@@ -33,23 +33,53 @@ public final class Game {
     private Timer timer;
     private int score;
     private int health;
+    private int level;
 
+    /**
+     * Konstruktorissa luodaan pallo, pelilauta sekä alustetaan muut peliä varten tehdyt muuttujat
+     * @param timer Gamedrawer luokassa luotu timer
+     */
     public Game(Timer timer) {
         bat = new Bat(200, 420);
         ball = new Ball(200, 250);
         bricks = new ArrayList<>();
         score = 0;
         health = 3;
+        level = 1;
 
         this.timer = timer;
         createBricks();
     }
 
+    /**
+     * Luodaan tiilet nykyistä tasoa varten
+     */
     public void createBricks() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                Brick b = new Brick(j * 71 + 7, i * 26 + 40, 2);
-                bricks.add(b);
+        if (level == 1) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 6; j++) {
+                    Brick b = new Brick(j * 71 + 7, i * 26 + 50, 2);
+                    bricks.add(b);
+                }
+            }
+        } else if (level == 2) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 6; j++) {
+                    if (j % 2 == 1) {
+                        Brick b = new Brick(j * 71 + 7, i * 26 + 50, 4);
+                        bricks.add(b);
+                    } else {
+                        Brick b = new Brick(j * 71 + 7, i * 26 + 50, 2);
+                        bricks.add(b);
+                    }
+                }
+            }
+        } else if (level == 3) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 6; j++) {
+                    Brick b = new Brick(j * 71 + 7, i * 26 + 50, 4);
+                    bricks.add(b);
+                }
             }
         }
     }
@@ -63,9 +93,19 @@ public final class Game {
         return items;
     }
 
+    /**
+     * Aina kun GameDrawer luokassa tapahtuu actionperformed niin sen tapahtuma välitetään tähän luokkaan 
+     * @param event GameDrawer luokan huomaama tapahtuma
+     */
     public void sendEvent(GameEvent event) {
         if (bricks.isEmpty()) {
-            stopGame();
+            if (level == 3) {
+                stopGame();
+            } else {
+                level++;
+                createBricks();
+                ball = new Ball(200, 250);
+            }
         }
 
         switch (event) {
@@ -85,6 +125,10 @@ public final class Game {
         }
     }
 
+    /**
+     * Tarkistetaan törmäykset pallon ja tiilien sekä pallon ja mailan kanssa. 
+     * Tarkistaa myös tippuuko pallo mailan ohi
+     */
     public void checkCollisions() {
         if (ball.getY() > bat.getY()) {
             health--;
@@ -106,6 +150,10 @@ public final class Game {
         }
     }
 
+    /**
+     * Mikäli pallo osuu tiettyyn tiileen tässä luokassa tuhotaan tiili ja vaihdetaan pallon suunta
+     * @param i tiili mihin pallo osui
+     */
     public void hitBrick(int i) {
         int ballLocation = ball.getX();
         int ballHeight = ball.getHeight();
@@ -137,6 +185,9 @@ public final class Game {
         }
     }
 
+    /**
+     * Vaihdetaan pallon suuntaa sen osuttua mailaan
+     */
     public void changeBallDirection() {
         int batX = bat.getX();
         int ballX = ball.getX();
@@ -164,15 +215,18 @@ public final class Game {
         }
     }
 
+    /**
+     * Lopetetaan peli ja näytetään käyttäjälle pistemäärä
+     */
     public void stopGame() {
         timer.stop();
         JOptionPane.showMessageDialog(null, "Game over! \n Your score: " + score + "\n Press spacebar to restart");
     }
-
+    
     public boolean timerStatus() {
         return timer.isRunning();
     }
-    
+
     public Ball getBall() {
         return ball;
     }
@@ -183,5 +237,13 @@ public final class Game {
 
     public ArrayList<Brick> getBricks() {
         return bricks;
+    }
+    
+    public void deleteAllBricks() {
+        bricks.removeAll(bricks);
+    }
+    
+    public int getLevel() {
+        return level;
     }
 }

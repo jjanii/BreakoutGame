@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- *
+ * Luokassa piirretään jatkuvasti peliä uusiksi 10ms välein
  * @author Jani
  */
 public class GameDrawer extends JPanel implements KeyListener, ActionListener {
@@ -31,6 +31,9 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
     private Game game;
     private ArrayList<Drawable> items;
 
+    /**
+     * Konstruktorissa käynnistetään peli 
+     */
     public GameDrawer() {
         game = new Game(timer);
         timer.start();

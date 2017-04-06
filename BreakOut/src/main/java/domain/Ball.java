@@ -8,7 +8,7 @@ package domain;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * Pallon luokka, luokan tehtävä lähinnä liikuttaa palloa oikeaan suuntaan
  * @author Jani
  */
 public class Ball extends Item implements Drawable {
@@ -16,6 +16,11 @@ public class Ball extends Item implements Drawable {
     private int dx;
     private int dy;
 
+    /**
+     * Luodaan pallo ja ladataan pallon kuva
+     * @param startx pallon aloitus x-koordinaatti
+     * @param starty pallon aloitus y-koordinaatti
+     */
     public Ball(int startx, int starty) {
 
         ImageIcon ball = new ImageIcon("resources/ball.png");
@@ -27,11 +32,14 @@ public class Ball extends Item implements Drawable {
         x = startx;
         y = starty;
 
-        dx = 1;
+        dx = 0;
         dy = 2;
 
     }
 
+    /**
+     * Liikutetaan palloa asetettujen y ja x koordinaattien verran
+     */
     public void move() {
         x += dx;
         y += dy;
@@ -39,6 +47,9 @@ public class Ball extends Item implements Drawable {
         checkIfBallGoesOutOfBorder();
     }
 
+    /**
+     * Tarkistetaan meneekö pallo ruudun rajojen yli
+     */
     public void checkIfBallGoesOutOfBorder() {
         if (x <= 0) {
             dx = 3;

@@ -20,7 +20,7 @@ public class BrickTest {
     
     @Test
     public void brickHealthDropsByOneWhenBallHitsBrick() {
-        Brick b = new Brick(200, 200, 999);
+        Brick b = new Brick(200, 200, 3);
         int health = b.getHealth();
         b.hit();
         assertEquals(b.getHealth(), health - 1);
