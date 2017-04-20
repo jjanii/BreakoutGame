@@ -7,16 +7,14 @@ package domain;
 
 import javax.swing.ImageIcon;
 
-/**
- * Liikutettavan mailan luokka
+/** Liikutettavan mailan luokka.
  * @author Jani
  */
 public class Bat extends Item implements Drawable {
 
     private int direction;
 
-    /**
-     * Luodaan maila ja ladataan sen kuva
+    /** Konstruktori.
      * @param startx mailan aloitus x-koordinaatti
      * @param starty mailan aloitus y-koordinaatti
      */
@@ -32,16 +30,14 @@ public class Bat extends Item implements Drawable {
         y = starty;
     }
 
-    /**
-     * Liikutetaan mailaa 4pikseliä annettuun suuntaan
+    /** Liikutetaan mailaa 4pikseliä annettuun suuntaan.
      */
     public void move() {
         x += direction;
         borderHandler();
     }
 
-    /**
-     * Tarkistetaan ettei maila mene näytön rajojen ulkopuolelle
+    /** Tarkistetaan ettei maila mene näytön rajojen ulkopuolelle.
      */
     public void borderHandler() {
         if (x >= 440 - width) {
@@ -51,10 +47,16 @@ public class Bat extends Item implements Drawable {
         }
     }
 
+    /** Asettaa nopeuden.
+     * @param speed mailan nopeus
+     */
     public void setDirection(int speed) {
         this.direction = speed;
     }
     
+    /** Palauttaa mailan suunnan.
+     * @return palauttaa mailan suunnan.
+     */
     public int getDirection() {
         return this.direction;
     }

@@ -7,8 +7,7 @@ package domain;
 
 import javax.swing.ImageIcon;
 
-/**
- * Luokan tehtävä on luoda ja päivittää tiilen kuvaa ja elämiä
+/** Luokan tehtävä on luoda ja päivittää tiilen kuvaa ja elämiä.
  * @author Jani
  */
 public final class Brick extends Item implements Drawable {
@@ -16,8 +15,7 @@ public final class Brick extends Item implements Drawable {
     private int health;
     private ImageIcon brick;
 
-    /**
-     * Tiilen konstruktori
+    /** Konstrutori.
      * @param x tiilen x-koordinaatti
      * @param y tiilen y-koordinaatti
      * @param hp tiilen elämät
@@ -30,8 +28,7 @@ public final class Brick extends Item implements Drawable {
         this.y = y;
     }
 
-    /**
-     * Vaihdetaan tiilen kuva sen mukaan paljonko elämiä kyseisellä tiilellä on jäljellä
+    /** Vaihdetaan tiilen kuva sen mukaan paljonko elämiä kyseisellä tiilellä on jäljellä.
      */
     public void setBrickImage() {
         
@@ -50,13 +47,14 @@ public final class Brick extends Item implements Drawable {
         height = image.getHeight(null);
     }
 
+    /** Palauttaa elämien määrään.
+     * @return montako elämää jäljellä.
+     */
     public int getHealth() {
         return this.health;
     }
 
-    /**
-     * Kun pallo osuu tiileen niin vähennetään tiileltä elämä ja kutsutaan setBrickImagea
-     * jotta tiilen kuva vaihtuu
+    /** Kun pallo osuu tiileen niin vähennetään tiileltä elämä ja kutsutaan setBrickImagea jotta tiilen kuva vaihtuu.
      */
     public void hit() {
         health--;

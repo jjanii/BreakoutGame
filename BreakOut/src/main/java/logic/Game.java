@@ -14,16 +14,34 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
-/**
- * Pelin logiikka
+/** Pelin logiikka.
  * @author Jani
  */
 public final class Game {
 
+    /** Eri mahdolliset tapaukset.
+     *
+     */
     public enum GameEvent {
+
+        /** Liikuta mailaa oikealle.
+         *
+         */
         MOVE_RIGHT,
+
+        /** Liikuta mailaa vasemmalle.
+         *
+         */
         MOVE_LEFT,
+
+        /** Napin painaminen lopetettu.
+         *
+         */
         KEY_RELEASED,
+
+        /** Timer "lyö".
+         *
+         */
         TIMER_TICK
     }
 
@@ -35,8 +53,7 @@ public final class Game {
     private int health;
     private int level;
 
-    /**
-     * Konstruktorissa luodaan pallo, pelilauta sekä alustetaan muut peliä varten tehdyt muuttujat
+    /** Konstruktorissa luodaan pallo, pelilauta sekä alustetaan muut peliä varten tehdyt muuttujat.
      * @param timer Gamedrawer luokassa luotu timer
      */
     public Game(Timer timer) {
@@ -51,8 +68,7 @@ public final class Game {
         createBricks();
     }
 
-    /**
-     * Luodaan tiilet nykyistä tasoa varten
+    /** Luodaan tiilet nykyistä tasoa varten.
      */
     public void createBricks() {
         if (level == 1) {
@@ -84,6 +100,10 @@ public final class Game {
         }
     }
 
+    /** Palauttaa kaikki itemit.
+     *
+     * @return kaikki itemit.
+     */
     public ArrayList<Drawable> getItems() {
         ArrayList<Drawable> items = new ArrayList<>();
         items.addAll(bricks);
@@ -93,8 +113,7 @@ public final class Game {
         return items;
     }
 
-    /**
-     * Aina kun GameDrawer luokassa tapahtuu actionperformed niin sen tapahtuma välitetään tähän luokkaan 
+    /** Aina kun GameDrawer luokassa tapahtuu actionperformed niin sen tapahtuma välitetään tähän luokkaan.
      * @param event GameDrawer luokan huomaama tapahtuma
      */
     public void sendEvent(GameEvent event) {
@@ -125,8 +144,7 @@ public final class Game {
         }
     }
 
-    /**
-     * Tarkistetaan törmäykset pallon ja tiilien sekä pallon ja mailan kanssa. 
+    /** Tarkistetaan törmäykset pallon ja tiilien sekä pallon ja mailan kanssa. 
      * Tarkistaa myös tippuuko pallo mailan ohi
      */
     public void checkCollisions() {
@@ -150,8 +168,7 @@ public final class Game {
         }
     }
 
-    /**
-     * Mikäli pallo osuu tiettyyn tiileen tässä luokassa tuhotaan tiili ja vaihdetaan pallon suunta
+    /** Mikäli pallo osuu tiettyyn tiileen tässä luokassa tuhotaan tiili ja vaihdetaan pallon suunta.
      * @param i tiili mihin pallo osui
      */
     public void hitBrick(int i) {
@@ -185,8 +202,7 @@ public final class Game {
         }
     }
 
-    /**
-     * Vaihdetaan pallon suuntaa sen osuttua mailaan
+    /** Vaihdetaan pallon suuntaa sen osuttua mailaan.
      */
     public void changeBallDirection() {
         int batX = bat.getX();
@@ -215,34 +231,56 @@ public final class Game {
         }
     }
 
-    /**
-     * Lopetetaan peli ja näytetään käyttäjälle pistemäärä
+    /** Lopetetaan peli ja näytetään käyttäjälle pistemäärä.
      */
     public void stopGame() {
         timer.stop();
         JOptionPane.showMessageDialog(null, "Game over! \n Your score: " + score + "\n Press spacebar to restart");
     }
     
+    /** Onko peli käynnissä vai ei.
+     *
+     * @return palauttaa pelin statuksen
+     */
     public boolean timerStatus() {
         return timer.isRunning();
     }
 
+    /** Palauttaa pallon.
+     *
+     * @return pallon.
+     */
     public Ball getBall() {
         return ball;
     }
 
+    /** Palauttaa mailan.
+     *
+     * @return mailan
+     */
     public Bat getBat() {
         return bat;
     }
 
+    /** Palauttaa tiilet.
+     *
+     * @return tiilet.
+     */
     public ArrayList<Brick> getBricks() {
         return bricks;
     }
     
+    /** Tuhoaa kaikki tiilet.
+     *
+     */
     public void deleteAllBricks() {
         bricks.removeAll(bricks);
     }
     
+    /** Palauttaa millä levelillä ollaan.
+     *
+     * @return nykyisen levelin
+     */
     public int getLevel() {
         return level;
     }

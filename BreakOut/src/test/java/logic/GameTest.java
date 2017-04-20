@@ -91,7 +91,7 @@ public class GameTest {
     }
 
     @Test
-    public void gameMovesToNextLevelAfterAllBricksAreRemoved() {
+    public void gameMovesToSecondLevelAfterAllBricksAreRemoved() {
         GameDrawer gd = new GameDrawer();
         Timer t = new Timer(20, gd);
         Game g = new Game(t);
@@ -102,6 +102,22 @@ public class GameTest {
 
         int currentlevel = g.getLevel();
         assertEquals(currentlevel, firstlevel + 1);
+    }
+
+    @Test
+    public void gameMovesToThirdLevelAfterSecondLevelIsCompleted() {
+        GameDrawer gd = new GameDrawer();
+        Timer t = new Timer(20, gd);
+        Game g = new Game(t);
+
+        int firstlevel = g.getLevel();
+        g.deleteAllBricks();
+        g.sendEvent(Game.GameEvent.TIMER_TICK);
+        g.deleteAllBricks();
+        g.sendEvent(Game.GameEvent.TIMER_TICK);
+
+        int currentlevel = g.getLevel();
+        assertEquals(currentlevel, firstlevel + 2);
     }
 
     @Test
@@ -119,7 +135,7 @@ public class GameTest {
 
         assertFalse(g.timerStatus());
     }
-    
+
     @Test
     public void createBricksCreates30Bricks() {
         GameDrawer gd = new GameDrawer();
@@ -128,10 +144,10 @@ public class GameTest {
 
         g.deleteAllBricks();
         g.sendEvent(Game.GameEvent.TIMER_TICK);
-        
+
         assertEquals(g.getBricks().size(), 30);
     }
-    
+
     @Test
     public void sendEventKeyReleasedStopsBatMovement() {
         GameDrawer gd = new GameDrawer();
@@ -140,11 +156,11 @@ public class GameTest {
 
         int batspeed = 4;
         g.getBat().setDirection(batspeed);
-        
+
         g.sendEvent(Game.GameEvent.KEY_RELEASED);
         assertEquals(0, g.getBat().getDirection());
-    } 
-    
+    }
+
     @Test
     public void sendEventMoveLeftSetsBatDirectionTo4PxLeft() {
         GameDrawer gd = new GameDrawer();
@@ -153,33 +169,31 @@ public class GameTest {
 
         g.sendEvent(Game.GameEvent.MOVE_LEFT);
         assertEquals(-4, g.getBat().getDirection());
-    }    
-    
+    }
+
     @Test
     public void sendEventMoveRightSetsBatDirectionTo4PxLeft() {
         GameDrawer gd = new GameDrawer();
         Timer t = new Timer(20, gd);
         Game g = new Game(t);
-        
+
         g.sendEvent(Game.GameEvent.MOVE_RIGHT);
         assertEquals(4, g.getBat().getDirection());
     }
-    
+
     @Test
     public void sendEventTimerTickMovesBatAndBall() {
         GameDrawer gd = new GameDrawer();
         Timer t = new Timer(20, gd);
         Game g = new Game(t);
-        
+
         g.getBat().setDirection(2);
         int batX = g.getBat().getX();
-        
+
         int ballY = g.getBall().getY();
         g.sendEvent(Game.GameEvent.TIMER_TICK);
         assertEquals(g.getBat().getX(), batX + 2);
         assertEquals(g.getBall().getY(), ballY + 2);
     }
-    
-    
 
 }

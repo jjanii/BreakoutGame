@@ -13,3 +13,7 @@ Päivä | Tunnit | Kuvaus
 04.04.2017 | 2h | Eri kenttien ja tiilien kokeilua
 06.04.2017 | 2h | 3 kenttää valmiiksi ja niiden testailua
 06.04.2017 | 2h | Testien ja viikkopalautuksen tekoa
+10.04.2017 | 2h | Poweruppien mietintää (kesken pahasti)
+17.04.2017 | 1h | Poweruppien aloitusta
+19.04.2017 | 2h | Viikkopalautuksen tekoas
+20.04.2017 | 2h | Sekvenssikaavioiden tekoa

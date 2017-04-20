@@ -8,7 +8,7 @@ package domain;
 import java.awt.Image;
 import java.awt.Rectangle;
 
-/**
+/** Item luokka.
  *
  * @author Jani
  */

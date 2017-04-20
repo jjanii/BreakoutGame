@@ -18,3 +18,7 @@ Kun olen saanut perustoiminnot kuntoon aion jatkaa kohti kehittyneempiä ominais
 
 **Luokkakaavio:**
 ![Alt text](/Dokumentaatio/kaaviot/luokkakaavio.png)
+
+**Sekvenssikaaviot:**
+![Alt text](/Dokumentaatio/kaaviot/sekvenssi1.png)
+![Alt text](/Dokumentaatio/kaaviot/sekvenssi2.png)
