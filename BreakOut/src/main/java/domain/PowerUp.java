@@ -11,8 +11,8 @@ import javax.swing.ImageIcon;
  *
  * @author Jani
  */
-public class PowerUp extends Item implements Drawable {
-
+public final class PowerUp extends Item implements Drawable {
+    private boolean active;
     /** Luodaan maila ja ladataan sen kuva.
      * @param startx powerupin aloitus x-koordinaatti
      * @param starty powerupin aloitus y-koordinaatti
@@ -20,16 +20,15 @@ public class PowerUp extends Item implements Drawable {
     public PowerUp(int startx, int starty) {
         x = startx;
         y = starty;
-    }
-
-    /** Valitaan satunnainen powerup (kesken).
-     */
-    public void choosePowerUp() {
-        ImageIcon bat = new ImageIcon("resources/bat.png");
-        image = bat.getImage();
+        ImageIcon powerup = new ImageIcon("resources/powerup_red.png");
+        image = powerup.getImage();
 
         width = image.getWidth(null);
         height = image.getHeight(null);
+    }
+    
+    public void move() {
+        y += 1;
     }
 
 }
