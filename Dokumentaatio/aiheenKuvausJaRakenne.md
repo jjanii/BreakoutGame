@@ -22,3 +22,8 @@ Kun olen saanut perustoiminnot kuntoon aion jatkaa kohti kehittyneempiä ominais
 **Sekvenssikaaviot:**
 ![Alt text](/Dokumentaatio/kaaviot/sekvenssi1.png)
 ![Alt text](/Dokumentaatio/kaaviot/sekvenssi2.png)
+
+**Rakenne**
+Ohjelman rakenne toimii että GameDrawer piirtää 10ms välein uuden pelitilanteen. Game luokka hoitaa kaiken logiikan. Game luokalla on monta
+eri itemiä (tiilet, pelilauta, pallo, powerup) ja se hallinnoi mitä jokaiselle itemille käy pelin eri vaiheissa. GameDrawer luokka kuuntelee
+käyttäjän näppäinten painalluksia ja lähettää ne Game luokalle joka siten tietää mitä tehdä milloinkin. Itemit omat vain palikoita jotka näkyvät ruudulla eikä niillä suoranaisesti ole muuta toiminnallisuutta kuin liikkuminen.

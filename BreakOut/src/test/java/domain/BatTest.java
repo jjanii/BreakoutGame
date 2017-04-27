@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,7 +19,7 @@ public class BatTest {
     }
     
     @Test
-    public void moveLeftMovesTheBatRightAmountOfPixelsLeft() {
+    public void moveLeftMovesTheBatRightAmountOfPixelsLeft() throws IOException {
         int speed = -20;
         Bat b = new Bat(200, 200);
         b.setDirection(20);
@@ -27,7 +28,7 @@ public class BatTest {
     }
     
     @Test
-    public void moveRightMovesTheBatRightAmountOfPixelsRight() {
+    public void moveRightMovesTheBatRightAmountOfPixelsRight() throws IOException {
         int speed = 30;
         Bat b = new Bat(200, 200);
         b.setDirection(speed);
@@ -36,7 +37,7 @@ public class BatTest {
     }
     
     @Test
-    public void moveRightDoesNotMoveTheBatOutOfBorders() {
+    public void moveRightDoesNotMoveTheBatOutOfBorders() throws IOException {
         int speed = 10;
         Bat b = new Bat(200, 200);
         b.setDirection(speed);
@@ -47,7 +48,7 @@ public class BatTest {
     }
      
     @Test
-    public void moveLeftDoesNotMoveTheBatOutOfBorders() {
+    public void moveLeftDoesNotMoveTheBatOutOfBorders() throws IOException {
         int speed = -10;
         Bat b = new Bat(200, 200);
         b.setDirection(speed);

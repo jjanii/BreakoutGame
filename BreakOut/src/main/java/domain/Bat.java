@@ -5,6 +5,9 @@
  */
 package domain;
 
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /** Liikutettavan mailan luokka.
@@ -17,10 +20,13 @@ public class Bat extends Item implements Drawable {
     /** Konstruktori.
      * @param startx mailan aloitus x-koordinaatti
      * @param starty mailan aloitus y-koordinaatti
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public Bat(int startx, int starty) {
+    public Bat(int startx, int starty) throws IOException {
+        InputStream is = getClass().getClassLoader().getResourceAsStream("bat.png");
 
-        ImageIcon bat = new ImageIcon("resources/bat.png");
+        ImageIcon bat = new ImageIcon(ImageIO.read(is));
+
         image = bat.getImage();
 
         width = image.getWidth(null);

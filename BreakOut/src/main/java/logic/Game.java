@@ -11,6 +11,7 @@ import domain.Brick;
 import domain.Drawable;
 import domain.PowerUp;
 import java.awt.Point;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -54,19 +55,20 @@ public final class Game {
     private Ball ball;
     private Bat bat;
     private ArrayList<Brick> bricks;
-    private PowerUp powerUp;
+    public PowerUp powerUp;
     private Timer timer;
-    private int score;
-    private int health;
-    private int level;
+    public int score;
+    public int health;
+    public int level;
 
     /**
      * Konstruktorissa luodaan pallo, pelilauta sekä alustetaan muut peliä
      * varten tehdyt muuttujat.
      *
      * @param timer Gamedrawer luokassa luotu timer
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public Game(Timer timer) {
+    public Game(Timer timer) throws IOException {
         bat = new Bat(200, 420);
         ball = new Ball(200, 250);
         bricks = new ArrayList<>();
@@ -80,13 +82,16 @@ public final class Game {
 
     /**
      * Luodaan tiilet nykyistä tasoa varten.
+     *
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public void createBricks() {
+    public void createBricks() throws IOException {
         if (level == 1) {
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 6; j++) {
                     Brick b = new Brick(j * 71 + 7, i * 26 + 50, 2);
                     bricks.add(b);
+
                 }
             }
         } else if (level == 2) {
@@ -132,8 +137,9 @@ public final class Game {
      * välitetään tähän luokkaan.
      *
      * @param event GameDrawer luokan huomaama tapahtuma
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public void sendEvent(GameEvent event) {
+    public void sendEvent(GameEvent event) throws IOException {
         if (bricks.isEmpty()) {
             if (level == 3) {
                 stopGame();
@@ -167,8 +173,9 @@ public final class Game {
     /**
      * Tarkistetaan törmäykset pallon ja tiilien sekä pallon ja mailan kanssa.
      * Tarkistaa myös tippuuko pallo mailan ohi
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public void checkCollisions() {
+    public void checkCollisions() throws IOException {
         if (powerUp != null && powerUp.getY() > bat.getY()) {
             powerUp = null;
         }
@@ -213,9 +220,11 @@ public final class Game {
 
     /**
      * Arvotaan luodaanko powerUp 30% mahdollisuudella.
+     *
      * @param i osuttu tiili jotta saadaan koordinaatit powerupille
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public void drawPowerUp(int i) {
+    public void drawPowerUp(int i) throws IOException {
         Random random = new Random();
         int number = random.nextInt(10);
 
@@ -226,9 +235,11 @@ public final class Game {
 
     /**
      * Luodaan powerUp.
+     *
      * @param i osuttu tiili jotta saadaan koordinaatit powerupille
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public void generatePowerUp(int i) {
+    public void generatePowerUp(int i) throws IOException {
         powerUp = new PowerUp(bricks.get(i).getX(), bricks.get(i).getY());
     }
 
@@ -237,8 +248,9 @@ public final class Game {
      * vaihdetaan pallon suunta.
      *
      * @param i tiili mihin pallo osui
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public void hitBrick(int i) {
+    public void hitBrick(int i) throws IOException {
         int ballLocation = ball.getX();
         int ballHeight = ball.getHeight();
         int ballWidth = ball.getWidth();

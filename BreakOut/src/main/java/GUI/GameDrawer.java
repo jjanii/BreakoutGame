@@ -17,7 +17,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -31,8 +34,9 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
     private ArrayList<Drawable> items;
 
     /** Konstruktorissa käynnistetään peli.
+     * @throws java.io.IOException
      */
-    public GameDrawer() {
+    public GameDrawer() throws IOException {
         game = new Game(timer);
         timer.start();
         setBackground(Color.BLACK);
@@ -41,7 +45,11 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent ev) {
         if (ev.getSource() == timer) {
-            game.sendEvent(GameEvent.TIMER_TICK);
+            try {
+                game.sendEvent(GameEvent.TIMER_TICK);
+            } catch (IOException ex) {
+                Logger.getLogger(GameDrawer.class.getName()).log(Level.SEVERE, null, ex);
+            }
             repaint();
         }
         setFocusable(true);
@@ -74,12 +82,24 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            game.sendEvent(GameEvent.MOVE_RIGHT);
+            try {
+                game.sendEvent(GameEvent.MOVE_RIGHT);
+            } catch (IOException ex) {
+                Logger.getLogger(GameDrawer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            game.sendEvent(GameEvent.MOVE_LEFT);
+            try {
+                game.sendEvent(GameEvent.MOVE_LEFT);
+            } catch (IOException ex) {
+                Logger.getLogger(GameDrawer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (!timer.isRunning()) {
-                game = new Game(timer);
+                try {
+                    game = new Game(timer);
+                } catch (IOException ex) {
+                    Logger.getLogger(GameDrawer.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 timer.restart();
             }
         }
@@ -92,7 +112,11 @@ public class GameDrawer extends JPanel implements KeyListener, ActionListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT) {
-            game.sendEvent(GameEvent.KEY_RELEASED);
+            try {
+                game.sendEvent(GameEvent.KEY_RELEASED);
+            } catch (IOException ex) {
+                Logger.getLogger(GameDrawer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

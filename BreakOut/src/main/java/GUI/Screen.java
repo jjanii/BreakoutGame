@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.io.IOException;
 import javax.swing.JFrame;
 
 /**
@@ -15,8 +16,9 @@ public class Screen extends JFrame {
 
     /**
      * Luodaan ruutu peliä varten
+     * @throws java.io.IOException
      */
-    public Screen() {
+    public Screen() throws IOException {
         GameDrawer gd = new GameDrawer();
         add(gd);
         gd.addKeyListener(gd);

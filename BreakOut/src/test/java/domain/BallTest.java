@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,7 +19,7 @@ public class BallTest {
     }
     
     @Test
-    public void moveMovesBallToTheSetDirectionWhenMovedOnce() {
+    public void moveMovesBallToTheSetDirectionWhenMovedOnce() throws IOException {
         Ball b = new Ball(200, 200);
         b.setdx(5);
         b.setdy(-5);
@@ -30,7 +31,7 @@ public class BallTest {
     }
     
     @Test
-    public void moveMovesBallCorrectlyWhenMovedMultipleTimes() {
+    public void moveMovesBallCorrectlyWhenMovedMultipleTimes() throws IOException {
         Ball b = new Ball(200, 200);
         b.setdx(1);
         b.setdy(1);
@@ -44,7 +45,7 @@ public class BallTest {
     }
     
     @Test
-    public void ballCanNotMoveOutOfLeftBorder() {
+    public void ballCanNotMoveOutOfLeftBorder() throws IOException {
         Ball b = new Ball(200, 200);
         b.setdx(-10);
         b.setdy(1);
@@ -57,7 +58,7 @@ public class BallTest {
     }
     
     @Test
-    public void ballCanNotMoveOutOfRightBorder() {
+    public void ballCanNotMoveOutOfRightBorder() throws IOException {
         Ball b = new Ball(200, 200);
         b.setdx(10);
         b.setdy(0);
@@ -70,7 +71,7 @@ public class BallTest {
     }
     
     @Test
-    public void ballCanNotMoveOverTheTopOfWindow() {
+    public void ballCanNotMoveOverTheTopOfWindow() throws IOException {
         Ball b = new Ball(200, 200);
         b.setdx(0);
         b.setdy(-10);

@@ -17,3 +17,5 @@ Päivä | Tunnit | Kuvaus
 17.04.2017 | 1h | Poweruppien aloitusta
 19.04.2017 | 2h | Viikkopalautuksen tekoas
 20.04.2017 | 2h | Sekvenssikaavioiden tekoa
+26.04.2017 | 2h | Testien tekoa
+27.04.2017 | 1h | Palautuksen tekemistä

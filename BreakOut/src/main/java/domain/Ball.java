@@ -5,6 +5,10 @@
  */
 package domain;
 
+import java.io.IOException;
+import java.io.InputStream;
+import static java.util.Arrays.stream;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /** Pallon luokka, luokan tehtävä lähinnä liikuttaa palloa oikeaan suuntaan.
@@ -15,13 +19,15 @@ public class Ball extends Item implements Drawable {
     private int dx;
     private int dy;
 
-    /** Luodaan pallo ja ladataan pallon kuva.
+   /** Luodaan pallo ja ladataan pallon kuva.
      * @param startx pallon aloitus x-koordinaatti
      * @param starty pallon aloitus y-koordinaatti
+     * @throws java.io.IOException jos kuvaa ei löydy.
      */
-    public Ball(int startx, int starty) {
+    public Ball(int startx, int starty) throws IOException {
+        InputStream is = getClass().getClassLoader().getResourceAsStream("ball.png");
 
-        ImageIcon ball = new ImageIcon("resources/ball.png");
+        ImageIcon ball = new ImageIcon(ImageIO.read(is));
         image = ball.getImage();
 
         width = image.getWidth(null);

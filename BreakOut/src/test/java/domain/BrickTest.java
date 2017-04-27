@@ -6,6 +6,7 @@
 package domain;
 
 import java.awt.Image;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +20,7 @@ public class BrickTest {
     }
     
     @Test
-    public void brickHealthDropsByOneWhenBallHitsBrick() {
+    public void brickHealthDropsByOneWhenBallHitsBrick() throws IOException {
         Brick b = new Brick(200, 200, 3);
         int health = b.getHealth();
         b.hit();
@@ -27,7 +28,7 @@ public class BrickTest {
     }
     
     @Test
-    public void brickImageChangesWhenBrickGetsHit() {
+    public void brickImageChangesWhenBrickGetsHit() throws IOException {
         Brick b = new Brick(200, 200, 2);
         Image i = b.getImage();
         b.hit();

@@ -1,4 +1,5 @@
 domain/BatTest.class
+domain/PowerUpTest.class
 logic/GameTest.class
 domain/BallTest.class
 domain/BrickTest.class

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="13" failures="0" name="logic.GameTest" time="3.955" errors="0" skipped="0">
+<testsuite tests="23" failures="0" name="logic.GameTest" time="11.828" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib"/>
@@ -60,17 +60,27 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="logic.GameTest" name="gameIsOnWhileBallIsAboveTheBat" time="0.283"/>
-  <testcase classname="logic.GameTest" name="sendEventMoveRightSetsBatDirectionTo4PxLeft" time="0.005"/>
-  <testcase classname="logic.GameTest" name="getItemsReturnsCorrectAmountOfItems" time="0.006"/>
-  <testcase classname="logic.GameTest" name="createBricksCreates30Bricks" time="0.006"/>
-  <testcase classname="logic.GameTest" name="changeBallDirectionChangesBallToGoUp" time="0.003"/>
-  <testcase classname="logic.GameTest" name="brickGetsDeletedAfterHitTwice" time="0.002"/>
-  <testcase classname="logic.GameTest" name="gameMovesToSecondLevelAfterAllBricksAreRemoved" time="0.004"/>
-  <testcase classname="logic.GameTest" name="gameMovesToThirdLevelAfterSecondLevelIsCompleted" time="0.003"/>
-  <testcase classname="logic.GameTest" name="sendEventTimerTickMovesBatAndBall" time="0.007"/>
-  <testcase classname="logic.GameTest" name="gameEndsIfBallDropsBelowTheBat" time="0.001"/>
-  <testcase classname="logic.GameTest" name="sendEventKeyReleasedStopsBatMovement" time="0.003"/>
-  <testcase classname="logic.GameTest" name="sendEventMoveLeftSetsBatDirectionTo4PxLeft" time="0.002"/>
-  <testcase classname="logic.GameTest" name="gameEndsWhenThirdLevelIsCompleted" time="3.61"/>
+  <testcase classname="logic.GameTest" name="sendEventTimerTickMovesBatBallAndPowerUp" time="0.561"/>
+  <testcase classname="logic.GameTest" name="ifBallIsLowerThanBatHealthIsReduced" time="0.496"/>
+  <testcase classname="logic.GameTest" name="drawPowerUpDrawsPowerUpRandomly" time="0.414"/>
+  <testcase classname="logic.GameTest" name="destroyRandomBrickDestroysABrick" time="0.284"/>
+  <testcase classname="logic.GameTest" name="generatePowerUpCreatesPowerUp" time="0.314"/>
+  <testcase classname="logic.GameTest" name="scoreIsIncreasedBy50WhenBrickIsHit" time="0.295"/>
+  <testcase classname="logic.GameTest" name="gameIsOnWhileBallIsAboveTheBat" time="0.269"/>
+  <testcase classname="logic.GameTest" name="sendEventMoveRightSetsBatDirectionTo4PxLeft" time="0.279"/>
+  <testcase classname="logic.GameTest" name="powerUpIsSetToNullAfterItFallsBelowBat" time="0.264"/>
+  <testcase classname="logic.GameTest" name="getItemsReturnsCorrectAmountOfItems" time="0.251"/>
+  <testcase classname="logic.GameTest" name="createBricksCreates30Bricks" time="0.412"/>
+  <testcase classname="logic.GameTest" name="changeBallDirectionChangesBallToGoUp" time="0.273"/>
+  <testcase classname="logic.GameTest" name="brickGetsDeletedAfterHitTwice" time="0.261"/>
+  <testcase classname="logic.GameTest" name="gameMovesToSecondLevelAfterAllBricksAreRemoved" time="0.418"/>
+  <testcase classname="logic.GameTest" name="ballDirectionIsChangedWhenBallHitsBat" time="0.27"/>
+  <testcase classname="logic.GameTest" name="level3Generates30Bricks" time="0.366"/>
+  <testcase classname="logic.GameTest" name="gameMovesToThirdLevelAfterSecondLevelIsCompleted" time="0.475"/>
+  <testcase classname="logic.GameTest" name="gameEndsIfBallDropsBelowTheBat" time="0.247"/>
+  <testcase classname="logic.GameTest" name="sendEventKeyReleasedStopsBatMovement" time="0.237"/>
+  <testcase classname="logic.GameTest" name="sendEventMoveLeftSetsBatDirectionTo4PxLeft" time="0.229"/>
+  <testcase classname="logic.GameTest" name="gameEndsWhenThirdLevelIsCompleted" time="4.2"/>
+  <testcase classname="logic.GameTest" name="level2Generates30Bricks" time="0.378"/>
+  <testcase classname="logic.GameTest" name="ifHealthIsZeroThenGameIsOver" time="0.62"/>
 </testsuite>
