@@ -10,3 +10,5 @@ Tavoitteena on tuhota kaikki tiilet.
 [Pit-raportti](https://htmlpreview.github.io/?https://github.com/jjanii/BreakoutGame/blob/master/Dokumentaatio/pit/index.html)
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/jjanii/BreakoutGame/blob/master/Dokumentaatio/checkstyle/checkstyle.html)
+
+[Käyttöohje](Dokumentaatio/k%C3%A4ytt%C3%B6ohje.md)
